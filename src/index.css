@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Archivo+Black&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 60 100% 97%;
+    --foreground: 0 0% 0%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    --primary: 262 83% 58%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 47 100% 50%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 60 5% 90%;
+    --muted-foreground: 0 0% 30%;
+
+    --accent: 340 82% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 262 83% 58%;
+
+    --radius: 0px;
+
+    /* Chart colors - bright neo brutalist palette */
+    --chart-1: 262 83% 58%;
+    --chart-2: 340 82% 55%;
+    --chart-3: 47 100% 50%;
+    --chart-4: 174 72% 50%;
+    --chart-5: 199 89% 48%;
+    --chart-6: 142 71% 45%;
+
+    /* Custom tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 47 100% 50%;
+    --warning-foreground: 0 0% 0%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    /* Neo Brutalist Shadows - hard offset shadows */
+    --shadow-brutal: 4px 4px 0 0 hsl(0 0% 0%);
+    --shadow-brutal-lg: 6px 6px 0 0 hsl(0 0% 0%);
+    --shadow-brutal-xl: 8px 8px 0 0 hsl(0 0% 0%);
+    --shadow-brutal-hover: 2px 2px 0 0 hsl(0 0% 0%);
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 0%;
+    --sidebar-primary: 262 83% 58%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 340 82% 55%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 0%;
+    --sidebar-ring: 262 83% 58%;
+    --sidebar: 0 0% 100%;
+
+    --font-sans: 'Space Mono', monospace;
+    --font-display: 'Archivo Black', sans-serif;
+    --font-mono: 'Space Mono', monospace;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 60 100% 97%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 60 100% 97%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 60 100% 97%;
+
+    --primary: 262 83% 68%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 47 100% 55%;
+    --secondary-foreground: 0 0% 0%;
+
+    --muted: 0 0% 25%;
+    --muted-foreground: 60 5% 70%;
+
+    --accent: 340 82% 60%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 60 100% 97%;
+    --input: 60 100% 97%;
+    --ring: 262 83% 68%;
+
+    /* Chart colors */
+    --chart-1: 262 83% 68%;
+    --chart-2: 340 82% 60%;
+    --chart-3: 47 100% 55%;
+    --chart-4: 174 72% 60%;
+    --chart-5: 199 89% 58%;
+    --chart-6: 142 71% 55%;
+
+    /* Custom tokens */
+    --success: 142 71% 55%;
+    --success-foreground: 0 0% 0%;
+    --warning: 47 100% 55%;
+    --warning-foreground: 0 0% 0%;
+    --info: 199 89% 58%;
+    --info-foreground: 0 0% 0%;
+
+    /* Neo Brutalist Shadows - hard offset shadows */
+    --shadow-brutal: 4px 4px 0 0 hsl(60 100% 97%);
+    --shadow-brutal-lg: 6px 6px 0 0 hsl(60 100% 97%);
+    --shadow-brutal-xl: 8px 8px 0 0 hsl(60 100% 97%);
+    --shadow-brutal-hover: 2px 2px 0 0 hsl(60 100% 97%);
+
+    --sidebar-background: 0 0% 15%;
+    --sidebar-foreground: 60 100% 97%;
+    --sidebar-primary: 262 83% 68%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 340 82% 60%;
+    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-border: 60 100% 97%;
+    --sidebar-ring: 262 83% 68%;
+    --sidebar: 0 0% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply uppercase tracking-wide;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer utilities {
+  /* Neo Brutalist Shadow Utilities */
+  .shadow-brutal {
+    box-shadow: var(--shadow-brutal);
+  }
+
+  .shadow-brutal-lg {
+    box-shadow: var(--shadow-brutal-lg);
+  }
+
+  .shadow-brutal-xl {
+    box-shadow: var(--shadow-brutal-xl);
+  }
+
+  .shadow-brutal-hover {
+    box-shadow: var(--shadow-brutal-hover);
+  }
+
+  /* Border utilities */
+  .border-brutal {
+    @apply border-2 border-foreground;
+  }
+
+  .border-brutal-thick {
+    @apply border-4 border-foreground;
+  }
+
+  /* Hover transform for brutal elements */
+  .brutal-hover {
+    @apply transition-all duration-150;
+  }
+
+  .brutal-hover:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-brutal-lg);
+  }
+
+  .brutal-hover:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+
+  .scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--foreground)) transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--foreground));
+  }
+
+  /* Neo Brutalist Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out both;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out forwards;
+  }
+
+  .animate-bounce-in {
+    animation: bounceIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
+  }
+
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from { 
+      opacity: 0; 
+      transform: translateY(-10px);
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounceIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.3) translateY(-20px);
+    }
+    50% {
+      transform: scale(1.05) translateY(0);
+    }
+    70% {
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px) rotate(-1deg); }
+    40% { transform: translateX(4px) rotate(1deg); }
+    60% { transform: translateX(-4px) rotate(-1deg); }
+    80% { transform: translateX(4px) rotate(1deg); }
+  }
+
+  /* Upload Zone Styles */
+  .upload-zone {
+    @apply border-4 border-foreground bg-background p-12 cursor-pointer transition-all;
+    @apply flex flex-col items-center justify-center gap-8;
+    @apply min-h-[400px];
+  }
+
+  .upload-zone.dragging {
+    @apply border-primary bg-primary/5 shadow-brutal-lg;
+  }
+
+  /* Neo Brutalist Button Primary */
+  .neo-button-primary {
+    @apply px-6 py-3 bg-primary text-primary-foreground border-2 border-foreground shadow-brutal;
+    @apply font-bold uppercase text-sm tracking-wide;
+    @apply hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-brutal-lg;
+    @apply active:translate-x-[2px] active:translate-y-[2px] active:shadow-none;
+    @apply transition-all duration-150;
+  }
+
+  /* Neo Brutalist Badge */
+  .neo-badge {
+    @apply inline-flex items-center gap-1 px-3 py-1.5 border-2 border-foreground shadow-brutal-hover;
+    @apply font-bold uppercase text-xs tracking-wide;
+  }
+}
